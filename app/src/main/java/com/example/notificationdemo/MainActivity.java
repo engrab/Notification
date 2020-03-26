@@ -7,6 +7,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 
@@ -53,10 +54,15 @@ public class MainActivity extends AppCompatActivity {
                 builder.addAction(R.drawable.ic_launcher_background, "Action 2", pendingIntent);
 
                 //for big text style
-                NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle();
-                bigTextStyle.setBigContentTitle("This is Big Text Title");
-                bigTextStyle.bigText("This text is big and summary text");
-                builder.setStyle(bigTextStyle);
+//                NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle();
+//                bigTextStyle.setBigContentTitle("This is Big Text Title");
+//                bigTextStyle.bigText("This text is big and summary text");
+//                builder.setStyle(bigTextStyle);
+
+                // big Picture
+                NotificationCompat.BigPictureStyle bigPictureStyle = new NotificationCompat.BigPictureStyle();
+                bigPictureStyle.bigPicture(BitmapFactory.decodeResource(getResources(), R.drawable.download));
+                builder.setStyle(bigPictureStyle);
 
                 // wrape in Notification
                 Notification notification = builder.build();
