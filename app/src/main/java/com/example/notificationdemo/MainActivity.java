@@ -42,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
                 Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
                 builder.setSound(soundUri);
 
+                // notification show at lock screen
+//                builder.setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+                // notification hide content
+                builder.setVisibility(NotificationCompat.VISIBILITY_PRIVATE);
+                // notification dont show at lock screen
+//                builder.setVisibility(NotificationCompat.VISIBILITY_SECRET);
+
                 // For targetting a activity using notification using intent
                 Intent intent = new Intent(MainActivity.this, TargetActivity.class);
                 intent.putExtra("key", NOTIFICATION_ID);
