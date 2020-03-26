@@ -48,10 +48,15 @@ public class MainActivity extends AppCompatActivity {
                 );
 
                 NotificationCompat.Action action = actionBuilder.build();
-
                 builder.addAction(action);
                 // Not a Recomended Way
                 builder.addAction(R.drawable.ic_launcher_background, "Action 2", pendingIntent);
+
+                //for big text style
+                NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle();
+                bigTextStyle.setBigContentTitle("This is Big Text Title");
+                bigTextStyle.bigText("This text is big and summary text");
+                builder.setStyle(bigTextStyle);
 
                 // wrape in Notification
                 Notification notification = builder.build();
