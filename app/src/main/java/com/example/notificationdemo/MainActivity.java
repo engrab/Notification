@@ -8,12 +8,15 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int NOTIFICATION_ID = 2020;
+    private static int NOTIFICATION_ID = 2020;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
                 builder.setSmallIcon(R.drawable.ic_launcher_background);
                 builder.setContentTitle(getString(R.string.app_name));
                 builder.setContentText("This is Demo Application Notification");
+
+                // notification properties
+                builder.setLights(Color.RED, 200, 200);
+
+                long[] vibrate = {100, 500, 100, 500};
+                builder.setVibrate(vibrate);
+
+                Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                builder.setSound(soundUri);
 
                 // For targetting a activity using notification using intent
                 Intent intent = new Intent(MainActivity.this, TargetActivity.class);
@@ -73,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 if (manager != null){
                     manager.notify(NOTIFICATION_ID, notification);
                 }
+                NOTIFICATION_ID++;
             }
         });
     }
