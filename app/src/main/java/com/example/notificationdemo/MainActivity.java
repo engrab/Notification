@@ -95,5 +95,12 @@ public class MainActivity extends AppCompatActivity {
                 NOTIFICATION_ID++;
             }
         });
+
+        findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SecondActivity.class));
+            }
+        });
     }
 }
